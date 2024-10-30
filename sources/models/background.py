@@ -6,8 +6,13 @@ sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '
 from utilities import helpers
 from utilities import constants
 
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '.'))
+from layer import layer
+
 class background(pygame.sprite.Sprite):
     def __init__(self, index, *groups):
+        self._layer = layer.BACKGROUND
+
         self.image = helpers.getImages('Background')
         self.rect = self.image.get_rect(topleft=(constants.SCREEN_WIDTH * index, 0))
 

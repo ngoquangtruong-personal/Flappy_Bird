@@ -59,8 +59,9 @@ while isRunning:
                 isGameStart = False
                 images.empty()
                 player, gameStartMessage, playerScore = createSprites()
-
-        player.handleEvent(event)
+                
+        if not isGameOver:
+            player.handleEvent(event)
 
     screen.fill(0)
 
@@ -76,7 +77,7 @@ while isRunning:
         pygame.time.set_timer(pipeCreateEvent, 0)
         helpers.playSound('Hit')
 
-
+        
 
     for item in images:
         if type(item) is pipe and item.passed():
